@@ -11,7 +11,7 @@
         &lt;
     </a>
     <?php if ($totalPage < 5 || $currentPage < 3) : ?>
-        <?php for ($i = 1; $i <= $totalPage; $i++): ?>
+        <?php for ($i = 1; $i <= min($totalPage, 5); $i++): ?>
             <a href="?<?= http_build_query(array_merge($_GET, ['page' => $i])) ?>"
                class="pagination-link <?= $currentPage === $i ? 'active' : '' ?>"><?= $i ?></a>
         <?php endfor ?>

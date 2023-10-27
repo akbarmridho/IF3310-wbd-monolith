@@ -5,6 +5,7 @@ namespace App\Http\Controller;
 use App\Model\Review;
 use Core\Base\BaseController;
 use Core\Http\Request;
+use Core\Http\Response;
 use Core\Session\Session;
 use Core\Validator\Types\IntType;
 use Core\Validator\Types\StringType;
@@ -43,7 +44,14 @@ class ReviewController extends BaseController
 
     public function editReviewView(Request $request)
     {
-        render('editreview', ['review' => Review::findById($request->getRouteParam('id'))]);
+        $reviewData = Review::findById($request->getRouteParam('id'));
+        
+        if ($reviewData->user_id != Session::$user->id) {
+            Response::status(403);
+            render('403');
+        } else {
+            render('editreview', ['review' => $reviewData]);
+        }      
     }
 
     public function editReview(Request $request)

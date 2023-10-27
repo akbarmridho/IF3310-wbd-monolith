@@ -1,5 +1,6 @@
 .animeeditor {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     background-color: var(--light-grey);
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 40px auto;
@@ -9,32 +10,29 @@
     text-align: center;
     color: white;
     font-size: 24px;
-    padding: 20px 0 20px 0;
+    padding: 20px 0;
     border-bottom: 1px solid #dee0e4;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .animeeditor form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 20px;
 }
 
 .animeeditor form label {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    width: 120px;
-    height: 50px;
+    width: 100%;
     color: #ffffff;
 }
 
 .animeeditor form input[type="date"],
 .animeeditor form input[type="text"],
 .animeeditor form input[type="number"],
-.animeeditor form select {
-    width: 310px;
+.animeeditor form select,
+.animeeditor form textarea {
+    width: 100%;
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;
@@ -42,11 +40,14 @@
 }
 
 .animeeditor form textarea {
-    width: 310px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;
     padding: 15px;
     resize: none;
+}
+
+.animeeditor form input {
+    width: 100%;
 }
 
 .animeeditor form input[type="submit"] {
@@ -64,4 +65,28 @@
 .animeeditor form input[type="submit"]:hover {
     background-color: #2868c7;
     transition: background-color 0.2s;
+}
+
+@media (min-width: 768px) {
+    .animeeditor {
+        width: 600px;
+    }
+
+    .animeeditor form label {
+        width: 120px;
+    }
+
+    .animeeditor form input[type="date"],
+    .animeeditor form input[type="text"],
+    .animeeditor form input[type="number"],
+    .animeeditor form select {
+        width: 310px;
+    }
+    .animeeditor form input {
+        width: 310px;
+    }
+
+    .animeeditor form input[type="submit"] {
+        width: 100%;
+    }
 }

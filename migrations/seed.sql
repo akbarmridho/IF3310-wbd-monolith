@@ -235,4 +235,4 @@ VALUES (14, 7, 4, 'Lorem ipsum dos color sit amet', 10, '2023-10-08 15:07:44.647
 INSERT INTO public.review (id, user_id, anime_id, review, rating, created_at, updated_at)
 VALUES (15, 7, 11, 'Lorem ipsum dos color sit amet', 8, '2023-10-08 15:07:44.683352', '2023-10-08 15:07:44.683352');
 
-SELECT setval('anime_id_seq', 15, true);
+SELECT setval('review_id_seq', 15, true);
