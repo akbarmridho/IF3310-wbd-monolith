@@ -6,6 +6,10 @@
     width: 80%;
 }
 
+.full-content {
+    width: 100%;
+}
+
 .h1 {
     background-color: var(--light-grey, grey);
     padding: 10px 10px;
@@ -84,4 +88,19 @@ select {
     color: var(--blue-link);
     font-weight: bold;
     font-size: 1rem;
+}
+
+.episodes-list {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+}
+
+.episode-item {
+    padding: 0.5rem;
+}
+
+.episode-item a {
+    text-decoration: none;
+    color: var(--gray-200);
 }

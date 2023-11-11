@@ -2,6 +2,7 @@
 /** @var array $meta */
 
 /** @var \App\Model\Anime $anime */
+/** @var \App\Model\AnimeStream $animeStream */
 
 $meta['title'] = $anime->title;
 $meta['layout'] = 'withnavbar';
@@ -31,13 +32,29 @@ $meta['js'][] = 'page/anime-detail';
                 <div class="anime-info"><span
                         class="font-semibold">Episode Count:</span> <?= $anime->episode_count ?? '?' ?></div>
                 <div class="anime-info"><span
+                        class="font-semibold">Aired Episodes:</span> <?= $animeStream->airedEpisodes ?? '-' ?>
+                </div>
+                <div class="anime-info"><span
                         class="font-semibold">Air Date Start:</span> <?= !is_null($anime->air_date_start) ? date_format($anime->air_date_start, 'Y-m-d') : '?' ?>
                 </div>
                 <div class="anime-info"><span
                         class="font-semibold">Air Date End:</span> <?= !is_null($anime->air_date_end) ? date_format($anime->air_date_end, 'Y-m-d') : '?' ?>
                 </div>
+
             </td>
             <td class="right-content">
+                <h2 class="font-bold">Episodes</h2>
+                <div class="episodes-list">
+                    <?php if (!is_null($animeStream->airedEpisodes)) : ?>
+                        <?php for ($i = 1; $i <= $animeStream->airedEpisodes; $i++) : ?>
+                            <div class="episode-item">
+                                <a href="<?= "/episode/" . $anime->id . "?episode=" . $i ?>"><?= $i ?></a>
+                            </div>
+                        <?php endfor ?>
+                    <?php else: ?>
+                        <p>No episodes</p>
+                    <?php endif ?>
+                </div>
                 <h2 class="font-bold">Description</h2>
                 <div><p><?= $anime->description ?? 'No summary available' ?></p></div>
             </td>

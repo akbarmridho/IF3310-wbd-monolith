@@ -12,7 +12,7 @@
     </button>
 
     <?php if (\Core\Session\Session::$user->isPremium() && $anime->global_id !== null && $anime->global_id !== "") : ?>
-        <a href='<?= "/anime/" . $anime->id . "/watch" ?>' class='btn btn-primary btn-small'>Stream</a>
+        <a href='<?= "/stream/" . $anime->id ?>' class='btn btn-primary btn-small'>Stream</a>
     <?php endif ?>
 </div>
 

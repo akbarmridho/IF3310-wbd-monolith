@@ -30,3 +30,4 @@ $config = \Core\App::get("config");
 
 \App\Model\BaseRest::setApiKey($config['rest-api-key']);
 \App\Model\BaseRest::setBaseUrl($config['rest-host']);
+\App\Model\BaseRest::setBaseUrlClient($config['rest-host-client']);

@@ -16,8 +16,8 @@
 \Core\Router\Router::delete("admin/anime/{id}", [\App\Http\Middleware\Admin::class], \App\Http\Controller\EditAnimeController::class, 'deleteAnime');
 
 // Anime watch page
-\Core\Router\Router::get('anime/{id}/watch', [\App\Http\Middleware\Premium::class], \App\Http\Controller\AnimeStreamController::class, 'index');
-\Core\Router\Router::get('anime/{id}/watch/{episode_id}', [\App\Http\Middleware\Premium::class], \App\Http\Controller\AnimeStreamController::class, 'view');
+\Core\Router\Router::get('episode/{id}', [\App\Http\Middleware\Premium::class], \App\Http\Controller\AnimeStreamController::class, 'view');
+\Core\Router\Router::get('stream/{id}', [\App\Http\Middleware\Premium::class], \App\Http\Controller\AnimeStreamController::class, 'index');
 
 // Anime detail page
 \Core\Router\Router::get('anime/{id}', [], \App\Http\Controller\AnimeController::class, 'view');

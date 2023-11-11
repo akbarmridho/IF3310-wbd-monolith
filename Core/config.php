@@ -13,6 +13,7 @@ return [
         ],
     ],
     'rest-host' => getenv("REST_HOST"),
+    'rest-host-client' => getenv("REST_HOST_CLIENT"),
     'rest-api-key' => getenv("REST_API_KEY"),
     'soap-host' => getenv("SOAP_HOST"),
 ];
