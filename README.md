@@ -80,3 +80,11 @@ Setiap task di bawah meliputi pengerjaan dari server side dan client side
 | Anime detail                   | 13521074           |
 | Anime list page                | 13521093           |
 | Add and edit review            | 13521074           |
+
+## Pembagian Tugas Milestone 2
+
+Setiap task di bawah meliputi pengerjaan dari server side dan client side
+
+| Tugas           | NIM      |
+|-----------------|----------|
+| Streaming anime | 13521093 |
