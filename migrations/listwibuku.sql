@@ -2,6 +2,7 @@
 CREATE TABLE IF NOT EXISTS Anime
 (
     id             SERIAL PRIMARY KEY,
+    global_id      VARCHAR(255),
 
     title          TEXT NOT NULL,
     studio         TEXT,

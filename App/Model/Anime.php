@@ -3,10 +3,7 @@
 namespace App\Model;
 
 use Core\Base\Model;
-use Core\App;
-use Core\Database\Connection;
 use DateTime;
-use PDOException;
 
 /**
  * @property int id
@@ -21,6 +18,7 @@ use PDOException;
  * @property DateTime updated_at
  * @property ?string poster
  * @property ?string trailer
+ * @property ?string global_id
  *
  * @property ?float rating
  * @property ?int members
@@ -29,6 +27,7 @@ class Anime extends Model
 {
     protected array $attributes = [
         'id',
+        'global_id',
         'title',
         'studio',
         'genre',

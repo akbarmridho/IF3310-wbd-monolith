@@ -18,6 +18,11 @@
 // Anime detail page
 \Core\Router\Router::get('anime/{id}', [], \App\Http\Controller\AnimeController::class, 'view');
 
+// Anime watch page
+// todo add premium user middleware here
+\Core\Router\Router::get('anime/{id}/watch', [], \App\Http\Controller\AnimeController::class, 'view');
+\Core\Router\Router::get('anime/{id}/watch/{episode_id}', [], \App\Http\Controller\AnimeController::class, 'view');
+
 // add review
 \Core\Router\Router::get("review/add/{id}", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\ReviewController::class, 'addReviewView');
 \Core\Router\Router::post("review/add/{id}", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\ReviewController::class, 'addReview');

@@ -69,9 +69,10 @@ With the addition of new members Iori and Izumi Hashima, development ensues—bu
 Saenai Heroine no Sodatekata Fine draws the series to a close as Tomoya selects his final route, both within his personal life and Blessing Software.',
         1, '2019-10-26 12:00:00.000000', null, 'sample/111411.jpg', null, '2023-10-08 14:46:01.923112',
         '2023-10-08 14:51:57.591944');
-INSERT INTO public.anime (id, title, studio, genre, description, episode_count, air_date_start, air_date_end, poster,
+INSERT INTO public.anime (id, title, global_id, studio, genre, description, episode_count, air_date_start, air_date_end,
+                          poster,
                           trailer, created_at, updated_at)
-VALUES (1, 'Sousou No Frieren', 'Madhouse', 'Fantasy', e'The demon king has been defeated, and the victorious hero party returns home before disbanding. The four—mage Frieren, hero Himmel, priest Heiter, and warrior Eisen—reminisce about their decade-long journey as the moment to bid each other farewell arrives. But the passing of time is different for elves, thus Frieren witnesses her companions slowly pass away one by one.
+VALUES (1, 'Sousou No Frieren', 'frieren-s1', 'Madhouse', 'Fantasy', e'The demon king has been defeated, and the victorious hero party returns home before disbanding. The four—mage Frieren, hero Himmel, priest Heiter, and warrior Eisen—reminisce about their decade-long journey as the moment to bid each other farewell arrives. But the passing of time is different for elves, thus Frieren witnesses her companions slowly pass away one by one.
 
 Before his death, Heiter manages to foist a young human apprentice called Fern onto Frieren. Driven by the elf\'s passion for collecting a myriad of magic spells, the pair embarks on a seemingly aimless journey, revisiting the places that the heroes of yore had visited. Along their travels, Frieren slowly confronts her regrets of missed opportunities to form deeper bonds with her now-deceased comrades.',
         27, '2023-09-27 12:00:00.000000', null, 'sample/frieren-1.jpg', 'sample/frieren-trailer.mp4',

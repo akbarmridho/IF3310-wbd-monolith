@@ -3,8 +3,8 @@
 namespace App\Http\Controller;
 
 use App\Model\Anime;
-use Core\Http\Request;
 use Core\Base\BaseController;
+use Core\Http\Request;
 use Core\Session\Session;
 use Core\Validator\Rules\ImageRule;
 use Core\Validator\Rules\VideoRule;
@@ -26,6 +26,7 @@ class EditAnimeController extends BaseController
 
         $validated = Validator::validate($request->getFormData(), [
             'title' => new StringType(required: true),
+            'global_id' => new StringType(required: false, nullable: true),
             'studio' => new StringType(required: false, nullable: true),
             'genre' => new StringType(required: false, nullable: true),
             'description' => new StringType(required: false, nullable: true),
@@ -64,6 +65,12 @@ class EditAnimeController extends BaseController
                 } else {
                     // need to check name is not empty because if empty then no image exist
                     unset($validated->data['trailer']);
+                }
+            }
+
+            if (array_key_exists('global_id', $validated->data)) {
+                if ($validated->data['global_id'] === "") {
+                    $validated->data['global_id'] = null;
                 }
             }
 

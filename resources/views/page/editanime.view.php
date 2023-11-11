@@ -11,7 +11,7 @@ $meta['css'][] = 'page/editanime';
 <div class="animeeditor">
     <h1>Edit Anime</h1>
     <form action="/admin/anime/<?= $anime->id ?>" method="post" enctype="multipart/form-data">
-        <input type="text" value="PUT" name="_method" hidden/>
+        <input type="text" value="PUT" name="_method" hidden />
         <table>
             <tbody>
             <tr>
@@ -21,6 +21,16 @@ $meta['css'][] = 'page/editanime';
                 <td>
                     <input type="text" name="title" placeholder="Title" id="title" required
                            value='<?= $anime->title ?>'>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="global_id">Global Id</label>
+                </td>
+                <td>
+                    <input type="text" name="global_id" placeholder="Global Id" id="global_id"
+                           value='<?= $anime->global_id ?? "" ?>' maxlength="255">
                 </td>
             </tr>
 
@@ -41,7 +51,8 @@ $meta['css'][] = 'page/editanime';
                 <td>
                     <select name="genre" id="genre" required>
                         <?php foreach (\App\Model\Anime::$genres as $genre) : ?>
-                            <option value="<?= $genre ?>" <?= $anime->genre === $genre ? 'selected' : '' ?>><?= $genre ?></option>
+                            <option
+                                value="<?= $genre ?>" <?= $anime->genre === $genre ? 'selected' : '' ?>><?= $genre ?></option>
                         <?php endforeach ?>
                     </select>
                 </td>

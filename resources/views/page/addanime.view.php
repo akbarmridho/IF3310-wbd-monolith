@@ -23,6 +23,15 @@ $meta['css'][] = 'page/editanime';
 
             <tr>
                 <td>
+                    <label for="global_id">Global Id</label>
+                </td>
+                <td>
+                    <input type="text" name="global_id" placeholder="Global Id" id="global_id" maxlength="255">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
                     <label for="studio">Studio</label>
                 </td>
                 <td>
