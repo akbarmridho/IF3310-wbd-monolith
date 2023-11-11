@@ -12,4 +12,7 @@ return [
             PDO::ATTR_PERSISTENT => true
         ],
     ],
+    'rest-host' => getenv("REST_HOST"),
+    'rest-api-key' => getenv("REST_API_KEY"),
+    'soap-host' => getenv("SOAP_HOST"),
 ];

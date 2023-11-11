@@ -9,7 +9,6 @@
 
 /** @var ?\App\Model\Review $user_review */
 
-use App\Model\Review;
 use Core\Session\Session;
 
 $meta['title'] = $anime->title;
@@ -38,19 +37,20 @@ $meta['js'][] = 'page/anime-detail';
                 <div class="anime-info"><span class="font-semibold">Studio:</span> <?= $anime->studio ?? '?' ?></div>
                 <div class="anime-info"><span class="font-semibold">Genre:</span> <?= $anime->genre ?? '?' ?></div>
                 <div class="anime-info"><span
-                            class="font-semibold">Episode Count:</span> <?= $anime->episode_count ?? '?' ?></div>
+                        class="font-semibold">Episode Count:</span> <?= $anime->episode_count ?? '?' ?></div>
                 <div class="anime-info"><span
-                            class="font-semibold">Air Date Start:</span> <?= !is_null($anime->air_date_start) ? date_format($anime->air_date_start, 'Y-m-d') : '?' ?>
+                        class="font-semibold">Air Date Start:</span> <?= !is_null($anime->air_date_start) ? date_format($anime->air_date_start, 'Y-m-d') : '?' ?>
                 </div>
                 <div class="anime-info"><span
-                            class="font-semibold">Air Date End:</span> <?= !is_null($anime->air_date_end) ? date_format($anime->air_date_end, 'Y-m-d') : '?' ?>
+                        class="font-semibold">Air Date End:</span> <?= !is_null($anime->air_date_end) ? date_format($anime->air_date_end, 'Y-m-d') : '?' ?>
                 </div>
             </td>
             <td class="right-content">
                 <div class="anime-stats">
                     <div>
                         <span class="font-bold stats-category">Score</span>
-                        <span class="stats-value"><?= $anime->rating ? number_format($anime->rating, 2, '.', '') : 'N/A' ?></span>
+                        <span
+                            class="stats-value"><?= $anime->rating ? number_format($anime->rating, 2, '.', '') : 'N/A' ?></span>
                         <span class="font-bold stats-category">Members</span>
                         <span class="stats-value"><?= $anime->members ?? 'N/A' ?></span>
                         <?php if (Session::isAuthenticated() && Session::$user->role == 'ADMIN') : ?>
@@ -94,24 +94,24 @@ $meta['js'][] = 'page/anime-detail';
                 <?php else: ?>
                     No trailer found
                 <?php endif ?>
-                
+
                 <h2 class="font-bold">Reviews</h2>
                 <?php if (Session::isAuthenticated() && is_null($user_review)) : ?>
-                    Write your review 
-                    <a href='/review/add/<?= $anime->id?>' class='btn btn-primary btn-small'>Add review</a>
+                    Write your review
+                    <a href='/review/add/<?= $anime->id ?>' class='btn btn-primary btn-small'>Add review</a>
                     <br><br>
                 <?php endif ?>
 
                 <?php
-                    if (is_null($reviews)) {
-                        echo "No reviews found";
+                if (is_null($reviews)) {
+                    echo "No reviews found";
+                } else {
+                    if (Session::isAuthenticated()) {
+                        render_component('reviews/reviewlist', ['data' => $reviews, 'user_id' => Session::$user->id]);
                     } else {
-                        if (Session::isAuthenticated()) {
-                            render_component('reviews/reviewlist', ['data' => $reviews, 'user_id' => Session::$user->id]);
-                        } else {
-                            render_component('reviews/reviewlist', ['data' => $reviews]);
-                        }
+                        render_component('reviews/reviewlist', ['data' => $reviews]);
                     }
+                }
                 ?>
             </td>
         </tr>

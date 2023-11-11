@@ -2,11 +2,10 @@
 
 namespace App\Model;
 
-use Core\Base\Model;
 use Core\App;
+use Core\Base\Model;
 use Core\Database\Connection;
 use DateTime;
-use PDOException;
 
 /**
  * @property int $id
@@ -136,6 +135,12 @@ class User extends Model
         $result = static::$connection->executeStatement("SELECT COUNT(*) as count FROM user_data");
 
         return $result[0]['count'];
+    }
+
+    public function isPremium(): bool
+    {
+        // todo implement this
+        return true;
     }
 }
 

@@ -24,3 +24,9 @@ $connection = new \Core\Database\Connection(\Core\Database\Connection::make(\Cor
 \Core\App::bind("database", $connection);
 
 \Core\Base\Model::$connection = $connection;
+
+// setup AnimeStream
+$config = \Core\App::get("config");
+
+\App\Model\BaseRest::setApiKey($config['rest-api-key']);
+\App\Model\BaseRest::setBaseUrl($config['rest-host']);

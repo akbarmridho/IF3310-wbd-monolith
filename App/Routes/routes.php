@@ -15,13 +15,12 @@
 \Core\Router\Router::put("admin/anime/{id}", [\App\Http\Middleware\Admin::class], \App\Http\Controller\EditAnimeController::class, 'editAnime');
 \Core\Router\Router::delete("admin/anime/{id}", [\App\Http\Middleware\Admin::class], \App\Http\Controller\EditAnimeController::class, 'deleteAnime');
 
+// Anime watch page
+\Core\Router\Router::get('anime/{id}/watch', [\App\Http\Middleware\Premium::class], \App\Http\Controller\AnimeStreamController::class, 'index');
+\Core\Router\Router::get('anime/{id}/watch/{episode_id}', [\App\Http\Middleware\Premium::class], \App\Http\Controller\AnimeStreamController::class, 'view');
+
 // Anime detail page
 \Core\Router\Router::get('anime/{id}', [], \App\Http\Controller\AnimeController::class, 'view');
-
-// Anime watch page
-// todo add premium user middleware here
-\Core\Router\Router::get('anime/{id}/watch', [], \App\Http\Controller\AnimeController::class, 'view');
-\Core\Router\Router::get('anime/{id}/watch/{episode_id}', [], \App\Http\Controller\AnimeController::class, 'view');
 
 // add review
 \Core\Router\Router::get("review/add/{id}", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\ReviewController::class, 'addReviewView');
