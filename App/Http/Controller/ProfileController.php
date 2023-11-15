@@ -2,6 +2,7 @@
 
 namespace App\Http\Controller;
 
+use App\Model\Subscriber;
 use App\Model\User;
 use Core\Base\BaseController;
 use Core\Http\Request;
@@ -18,7 +19,8 @@ class ProfileController extends BaseController
     {
         render('profile', [
             'user' => User::findById($request->getRouteParam('id')),
-            'stats' => User::getStatistics($request->getRouteParam('id'))
+            'stats' => User::getStatistics($request->getRouteParam('id')),
+            'subscription' => Subscriber::findById($request->getRouteParam('id'))
         ]);
     }
 

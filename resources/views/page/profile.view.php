@@ -87,6 +87,41 @@ $meta['js'][] = 'page/profile';
                         </div>
                     </div>
                 </div>
+
+                <div class="profile-stats">
+                    <p class="font-semibold">Subscription</p>
+                    <div class="anime-stats">
+                    <?php if (isset($subscription)) : ?>
+                        <div>
+                            <p>Email</p>
+                        </div>
+                        <div>
+                            <p><?= $subscription->email ?></p>
+                        </div>
+                        <div>
+                            <p>Start Date</p>
+                        </div>
+                        <div>
+                            <p><?= date_format($subscription->subscriptionStartTime, 'Y-m-d') ?></p>
+                        </div>
+                        <div>
+                            <p>End Date</p>
+                        </div>
+                        <div>
+                            <p><?= date_format($subscription->subscriptionEndTime, 'Y-m-d') ?></p>
+                        </div>
+                        <div>
+                            <p>Active</p>
+                        </div>
+                        <div>
+                            <p><?= $subscription->subscriptionEndTime > new DateTime() ? 'True' : 'False' ?></p>
+                        </div>
+                    <?php else : ?>
+                        User not subscribed
+                        <!-- todo subscribe from here? -->
+                    <?php endif?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
