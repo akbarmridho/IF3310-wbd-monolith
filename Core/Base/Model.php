@@ -30,10 +30,23 @@ abstract class Model
                 if ($result) {
                     $this->data[$attribute] = $result;
                     continue;
-                } else {
-                    // handle uncasted date from microseconds
-                    $result = DateTime::createFromFormat('Y-m-d H:i:s', $this->data[$attribute]);
+                }
+
+                // handle uncasted date from microseconds
+                $result = DateTime::createFromFormat('Y-m-d H:i:s', $this->data[$attribute]);
+                
+                if ($result) {
                     $this->data[$attribute] = $result;
+                    continue;
+                }
+
+                // handle T Z format
+                $tzdate = date('Y-m-d H:i:s', strtotime($this->data[$attribute]));
+                $result = DateTime::createFromFormat('Y-m-d H:i:s', $tzdate);
+
+                if ($result) {
+                    $this->data[$attribute] = $result;
+                    continue;
                 }
             }
         }

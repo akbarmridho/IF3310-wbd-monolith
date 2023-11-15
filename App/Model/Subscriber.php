@@ -11,8 +11,8 @@ use SoapHeader;
 
 /**
  * @property int $id
- * @property DateTime $start_date
- * @property DateTime $end_date
+ * @property DateTime $subscriptionStartTime
+ * @property DateTime $subscriptionEndTime
  * @property string $email
  */
 class Subscriber extends BaseSoap
@@ -21,14 +21,14 @@ class Subscriber extends BaseSoap
     protected static string $serviceName;
     protected array $attributes = [
         'id',
-        'start_date',
-        'end_date',
+        'subscriptionStartTime',
+        'subscriptionEndTime',
         'email'
     ];
 
     protected array $datetimeAttributes = [
-        'start_date',
-        'end_date'
+        'subscriptionStartTime',
+        'subscriptionEndTime',
     ];
 
     public static function setSoapClient(string $service) {
@@ -51,11 +51,11 @@ class Subscriber extends BaseSoap
             )
         ));
 
-        var_dump($result);
+        // var_dump($result);
 
         // TODO convert stdClass to model
         // FIXME
-        return new Subscriber($result[0]);
+        return new Subscriber((array)$result->return);
     }
 
     public static function create(array $data): Subscriber|null
