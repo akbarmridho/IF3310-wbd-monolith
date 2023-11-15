@@ -56,6 +56,8 @@
 \Core\Router\Router::post("anime/{id}/status", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\StatusController::class, 'updateStatus');
 \Core\Router\Router::delete("anime/{id}/status", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\StatusController::class, "deleteStatus");
 
-// Subscriber
-\Core\Router\Router::get("subscription", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\SubscriberController::class, 'getSubscriber');
-// TODO subscriber routes
+// Subscription
+\Core\Router\Router::get("subscription/subscribe", [\App\Http\Middleware\Authenticated::class, \App\Http\Middleware\Nonpremium::class], \App\Http\Controller\SubscriberController::class, 'subscribeView');
+\Core\Router\Router::post("subscription/subscribe", [\App\Http\Middleware\Authenticated::class, \App\Http\Middleware\Nonpremium::class], \App\Http\Controller\SubscriberController::class, 'subscribe');
+\Core\Router\Router::get("subscription/renew", [\App\Http\Middleware\Authenticated::class, \App\Http\Middleware\Waspremium::class], \App\Http\Controller\SubscriberController::class, 'renewSubscriberView');
+\Core\Router\Router::post("subscription/renew", [\App\Http\Middleware\Authenticated::class, \App\Http\Middleware\Waspremium::class], \App\Http\Controller\SubscriberController::class, 'renewSubscriber');

@@ -15,7 +15,7 @@
         <?php if (\Core\Session\Session::$user->isPremium()) : ?>
             <a href='<?= "/stream/" . $anime->id ?>' class='btn btn-primary btn-small'>Stream</a>
         <?php else : ?>
-            <a href='' class='btn btn-primary btn-small'>Subscribe to Watch</a>
+            <a href='<?= "/profile/" . \Core\Session\Session::$user?->id?>' class='btn btn-primary btn-small'>Subscribe to Watch</a>
         <?php endif ?>
     <?php endif ?>
 </div>

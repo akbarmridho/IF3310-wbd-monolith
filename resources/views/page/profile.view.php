@@ -92,12 +92,14 @@ $meta['js'][] = 'page/profile';
                     <p class="font-semibold">Subscription</p>
                     <div class="anime-stats">
                     <?php if (isset($subscription)) : ?>
-                        <div>
-                            <p>Email</p>
-                        </div>
-                        <div>
-                            <p><?= $subscription->email ?></p>
-                        </div>
+                        <?php if ($subscription->id == \Core\Session\Session::$user?->id) : ?>
+                            <div>
+                                <p>Email</p>
+                            </div>
+                            <div>
+                                <p><?= $subscription->email ?></p>
+                            </div>
+                        <?php endif ?>
                         <div>
                             <p>Start Date</p>
                         </div>
@@ -116,9 +118,20 @@ $meta['js'][] = 'page/profile';
                         <div>
                             <p><?= $subscription->subscriptionEndTime > new DateTime() ? 'True' : 'False' ?></p>
                         </div>
+
+                        <?php if ($subscription->id == \Core\Session\Session::$user?->id) : ?>
+                            <a href="/subscription/renew">
+                                <button type='button' class="btn btn-primary btn-small" id="renew-sub">Renew subscription</button>
+                            </a>
+                        <?php endif ?>
                     <?php else : ?>
                         User not subscribed
-                        <!-- todo subscribe from here? -->
+
+                        <?if ($user->id == \Core\Session\Session::$user?->id) : ?>
+                            <a href="/subscription/subscribe">
+                                <button type='button' class="btn btn-primary btn-small" id="create-sub">Subscribe</button>
+                            </a>
+                        <?php endif ?>
                     <?php endif?>
                     </div>
                 </div>
