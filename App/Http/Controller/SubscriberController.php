@@ -27,7 +27,7 @@ class SubscriberController extends BaseController {
                 render('subscribe', ['id' => Session::$user->id, 'error' => 'Failed to subscribe']);
             } else {
                 Session::setMessage('Subscribed');
-                redirect('');
+                redirect('/profile/'.Session::$user->id);
             }
         }
     }
@@ -54,7 +54,7 @@ class SubscriberController extends BaseController {
                 render('subrenew', ['id' => Session::$user->id, 'error' => 'Failed to renew']);
             } else {
                 Session::setMessage('Renewed Subscriber');
-                redirect('');
+                redirect('/profile/'.Session::$user->id);
             }
         }
     }

@@ -99,19 +99,19 @@ $meta['js'][] = 'page/profile';
                             <div>
                                 <p><?= $subscription->email ?></p>
                             </div>
+                            <div>
+                                <p>Start Date</p>
+                            </div>
+                            <div>
+                                <p><?= date_format($subscription->subscriptionStartTime, 'Y-m-d') ?></p>
+                            </div>
+                            <div>
+                                <p>End Date</p>
+                            </div>
+                            <div>
+                                <p><?= date_format($subscription->subscriptionEndTime, 'Y-m-d') ?></p>
+                            </div>
                         <?php endif ?>
-                        <div>
-                            <p>Start Date</p>
-                        </div>
-                        <div>
-                            <p><?= date_format($subscription->subscriptionStartTime, 'Y-m-d') ?></p>
-                        </div>
-                        <div>
-                            <p>End Date</p>
-                        </div>
-                        <div>
-                            <p><?= date_format($subscription->subscriptionEndTime, 'Y-m-d') ?></p>
-                        </div>
                         <div>
                             <p>Active</p>
                         </div>
