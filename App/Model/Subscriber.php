@@ -50,7 +50,9 @@ class Subscriber extends BaseSoap
             )
         ));
 
-        // TODO: fix not found subscriber
+        if (empty((array) $result)) {
+            return null;
+        }
 
         return new Subscriber((array)$result->return);
     }
@@ -64,6 +66,10 @@ class Subscriber extends BaseSoap
             )
         ));
 
+        if (empty((array) $result)) {
+            return null;
+        }
+
         return new Subscriber((array)$result->return);
     }
 
@@ -75,12 +81,21 @@ class Subscriber extends BaseSoap
             )
         ));
 
+        if (empty((array) $result)) {
+            return null;
+        }
+
         return new Subscriber((array)$result->return);
     }
 
     public static function isSubscribed(int $id): bool
     {
         $data = static::findById($id);
+        
+        if ($data === null) {
+            return false;
+        }
+
         $now  = new DateTime();
 
         return $data->subscriptionEndTime > $now;

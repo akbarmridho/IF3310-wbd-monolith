@@ -20,7 +20,7 @@ class SubscriberController extends BaseController {
 
     public function getSubscriber(Request $request) {
         // FIXME
-        var_dump(Subscriber::renewSubscriber(3));
+        var_dump(Subscriber::findById(4));
     }
 
     public function view(Request $request)
