@@ -139,8 +139,7 @@ class User extends Model
 
     public function isPremium(): bool
     {
-        // todo implement this
-        return true;
+        return Subscriber::isSubscribed($this->id);
     }
 }
 

@@ -44,30 +44,46 @@ class Subscriber extends BaseSoap
 
     public static function findById(int $id): null|Subscriber
     {
-        
         $result = static::$client->__soapCall('getSubscriber', array(
             'getSubscriber' => array(
                 'arg0' => $id,
             )
         ));
 
-        // var_dump($result);
+        // TODO: fix not found subscriber
 
-        // TODO convert stdClass to model
-        // FIXME
         return new Subscriber((array)$result->return);
     }
 
-    public static function create(array $data): Subscriber|null
+    public static function createSubscriber(int $id, string $email): Subscriber|null
     {
-        // TODO
-        return null;
+        $result = static::$client->__soapCall('createSubscriber', array(
+            'createSubscriber' => array(
+                'arg0' => $id,
+                'arg1' => $email,
+            )
+        ));
+
+        return new Subscriber((array)$result->return);
     }
 
     public static function renewSubscriber(int $id): Subscriber|null
     {
-        // TODO
-        return null;
+        $result = static::$client->__soapCall('renewSubscriber', array(
+            'renewSubscriber' => array(
+                'arg0' => $id,
+            )
+        ));
+
+        return new Subscriber((array)$result->return);
+    }
+
+    public static function isSubscribed(int $id): bool
+    {
+        $data = static::findById($id);
+        $now  = new DateTime();
+
+        return $data->subscriptionEndTime > $now;
     }
 
 }
