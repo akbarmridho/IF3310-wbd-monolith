@@ -31,3 +31,8 @@ $config = \Core\App::get("config");
 \App\Model\BaseRest::setApiKey($config['rest-api-key']);
 \App\Model\BaseRest::setBaseUrl($config['rest-host']);
 \App\Model\BaseRest::setBaseUrlClient($config['rest-host-client']);
+
+\App\Model\BaseSoap::setApiKey($config['soap-api-key']);
+\App\Model\BaseSoap::setBaseUrl($config['soap-host']);
+
+\App\Model\Subscriber::setSoapClient('subscriberservice');

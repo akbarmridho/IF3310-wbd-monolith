@@ -55,3 +55,7 @@
 // Anime Status
 \Core\Router\Router::post("anime/{id}/status", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\StatusController::class, 'updateStatus');
 \Core\Router\Router::delete("anime/{id}/status", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\StatusController::class, "deleteStatus");
+
+// Subscriber
+\Core\Router\Router::get("subscription", [\App\Http\Middleware\Authenticated::class], \App\Http\Controller\SubscriberController::class, 'getSubscriber');
+// TODO subscriber routes

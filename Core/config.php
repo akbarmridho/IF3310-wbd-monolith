@@ -16,4 +16,5 @@ return [
     'rest-host-client' => getenv("REST_HOST_CLIENT"),
     'rest-api-key' => getenv("REST_API_KEY"),
     'soap-host' => getenv("SOAP_HOST"),
+    'soap-api-key' => getenv("SOAP_API_KEY"),
 ];
