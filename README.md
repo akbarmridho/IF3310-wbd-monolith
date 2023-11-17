@@ -2,7 +2,7 @@
 
 ListWibuKu is a site where you could explore anime and find anime review online
 
-## Daftar Anggota
+## Contributors
 
 1. Akbar Maulana Ridho, 13521093
 2. Eugene Yap Jin Quan, 13521074
@@ -24,7 +24,7 @@ ListWibuKu is a site where you could explore anime and find anime review online
 
 Make sure the docker container are up and running. Open the website on http://localhost:8000
 
-## Website Display
+## Features (Milestone 1)
 
 ### Home
 
@@ -58,7 +58,27 @@ Make sure the docker container are up and running. Open the website on http://lo
 
 ![Image](readme/register.png)
 
-## Bonus
+## Features (Milestone 2)
+
+### Watch Anime
+![Image](readme/anime-watch.png)
+![Image](readme/stream.png)
+
+### Watch Episode
+
+![Image](readme/episode.png)
+
+### Subscription Profile
+
+![Image](readme/subscription-profile.png)
+![Image](readme/subscription-profile-2.png)
+
+### Subscription Management
+
+![Image](readme/subscription-create.png)
+![Image](readme/subscription-renew.png)
+
+## Bonus Features
 
 - All responsive view
 - Docker compose configuration
@@ -66,12 +86,14 @@ Make sure the docker container are up and running. Open the website on http://lo
   ![Image](readme/lighthouse-home.png)
   ![Image](readme/lighthouse-detail.png)
 
-## Pembagian Tugas
+## Contributions
 
-Setiap task di bawah meliputi pengerjaan dari server side dan client side
+Each task includes server side and client side development
+
+### Milestone 1
 
 | Tugas                          | NIM                |
-|--------------------------------|--------------------|
+| ------------------------------ | ------------------ |
 | Login, Logout                  | 13521093           |
 | Register                       | 13521093           |
 | Profile                        | 13521074, 13521093 |
@@ -81,10 +103,9 @@ Setiap task di bawah meliputi pengerjaan dari server side dan client side
 | Anime list page                | 13521093           |
 | Add and edit review            | 13521074           |
 
-## Pembagian Tugas Milestone 2
-
-Setiap task di bawah meliputi pengerjaan dari server side dan client side
+### Milestone 2
 
 | Tugas           | NIM      |
-|-----------------|----------|
+| --------------- | -------- |
 | Streaming anime | 13521093 |
+| Subscription    | 13521074 |
